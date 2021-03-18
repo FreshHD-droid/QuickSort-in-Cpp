@@ -1,19 +1,17 @@
 #include <bits/stdc++.h>
 
-int pozitionare(int stg, int dr, int arr[]) {
+int partition(int stg, int dr, int arr[]) {
     char mod = 'a';
 
     if(stg == dr) {
         return stg;
     }else {
+        
         while(stg < dr) {
-
             if(arr[stg] > arr[dr]) {
-
                 std:: swap(arr[stg], arr[dr]);
-                if(mod == 'a')mod = 'b';
+                if(mod == 'a') mod = 'b';
                 else mod = 'a';
-
             }
 
             if(mod == 'a') {
@@ -31,7 +29,7 @@ void QS(int stg, int dr, int ar[]) {
     int k;
 
     if(stg < dr) {
-        k = pozitionare(stg, dr, ar);
+        k = partition(stg, dr, ar);
         QS(stg, k - 1, ar);
         QS(k + 1, dr, ar);
     }
